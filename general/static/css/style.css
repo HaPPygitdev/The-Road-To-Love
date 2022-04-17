@@ -1,0 +1,165 @@
+    @import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto+Slab:100,400');
+    @import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+    h1, h2, h3 {
+        font-family: 'Roboto Slab', serif;
+
+    }
+    .name_page {
+        display:inline-block;
+        position: absolute;
+        right: 10%;
+
+    }
+    .tag {
+        display:inline-block;
+        font-family: 'Square Peg', cursive;
+
+    }
+
+    .window_in_nav {
+        display: inline-block;
+        border-radius: 20px;
+        border: 1px solid black;
+        background-color: #d2d4dc;
+        padding: 10px;
+        margin: 100px 0 100px 10%;
+        position: absolute;
+        left: 0;
+        width: 50%;
+        height: 50%;
+    }
+    .space {
+        margin: 30% 0 0 0;
+    }
+    .window2_in_nav {
+        display:inline-block;
+        background-color: #d2d4dc;
+        border-radius: 20px;
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+        margin: 100px 10% 100px 0;
+        position: absolute;
+        right: 0;
+        width: 20%;
+        height: 50%;
+     }
+    header {
+        display: inline-block;
+        background-color: #e5e6eb;
+        width: 100%;
+        padding: 5px 10%;
+        position: fixed;
+        top: 0;
+
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
+    .for_button {
+        font-family: "Roboto ", sans-serif;
+        text-transform: uppercase;
+        background: #afafaf;
+        border: 0;
+        width: 100%;
+        padding: 25px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+
+    }
+   .for_button:hover {
+        background: #e5e6eb;
+    }
+    body {
+        background-color: #c23456;
+    }
+    .favicon {
+        background-color: #d3d3d6;
+        width:20px;
+    }
+    .article_profile {
+        display: inline-block;
+        margin: 150px 12%;
+        width:80%;
+    }
+    .first_window_profile {
+        display: inline-block;
+        vertical-align:top;
+        background-color: #d2d4dc;
+        padding: 15px;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 20px;
+     }
+     .for_button_out {
+        font-family: "Roboto", sens-serif;
+        background: #afafaf;
+        padding: 2px;
+        color: white;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+     }
+     .for_button_out:hover {
+        background-color: #e5e6eb;
+      }
+      p{
+        text-align: center;
+        font-family: 'Roboto Slab', serif;
+    }
+    .form_posts_profile {
+        position: relative;
+        z-index: 1;
+        background-color: #d2d4dc;
+        width: 360px;
+        margin: 100px auto;
+        padding: 45px;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 20px;
+    }
+    .form_login {
+        position: relative;
+        z-index: 1;
+        background-color: #d2d4dc;
+
+        width: 360px;
+        margin: 100px auto;
+        padding: 45px;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 20px;
+    }
+    .form_login input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        border-radius: 20px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form_login button{
+        font-family: "Roboto Slab", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #afafaf;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+   .form_login button:hover {
+        background: #e5e6eb;
+    }

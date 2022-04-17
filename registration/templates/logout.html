@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Log out {% endblock %}
+
+{% block name_page %} Log out {% endblock %}
+
+{% block main %}
+        <div class="form_login">
+            <form action='/logout/' method='POST'>
+                <h3>You've logged out successfully</h3>
+                <a href="../">Nav page</a>
+            </form>
+        </div>
+{% endblock %}

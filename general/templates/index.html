@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Nav page {% endblock %}
+
+{% block name_page %} Nav page {% endblock %}
+
+{% block main %}
+        <div class="window_in_nav">
+            <h3>Hello, user!</h3>
+        </div>
+        <div class="window2_in_nav">
+            <h2 class="tag" style="margin: 10% 0 0 0;">The Road to Love</h2>
+            <div class="space">
+                <p><input type="button" value=" Log in  " class = "for_button" onclick="window.location.href = '../login';" ></p>
+                <p><input type="button" value=" Sign up " class = "for_button" onclick="window.location.href = '../signup';"></p>
+            </div>
+        </div>
+{% endblock %}
+
+{% block footer %}
+    <p>Authors: MARAT, GRISHA, GOSHA, ANDREI</p>
+{% endblock %}
+
+
+

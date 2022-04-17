@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign up 2 {% endblock %}
+
+{% block name_page %} Sign up 2 {% endblock %}
+
+{% block main %}
+    <script>
+        $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    </script>
+    <div class="form_login">
+        <h2 class="tag" style="margin: 5% 0 0 0;">The Road to Love</h2>
+        <form action='/profile_filling/' method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Sign up</button>
+            <a href="/">Nav page</a>
+        </form>
+    </div>
+
+
+    <p style="text-align: center; color: red;"> {{fail}}</p>
+{% endblock %}
+
