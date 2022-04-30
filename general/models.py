@@ -31,6 +31,7 @@ class Poll(models.Model):
     author = models.ForeignKey('User', on_delete=models.CASCADE, blank=False, default=None)
     type = models.CharField(max_length=4, choices=POLL_TYPES, blank=False)
 
+
 class Vote(models.Model):
     user_id = models.CharField(max_length=200, blank=False)
     poll_id = models.CharField(max_length=200, blank=False)

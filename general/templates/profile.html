@@ -12,37 +12,39 @@
 
         <article class="article_profile">
 
-                <ul class="first_window_profile" style="width:20%;">
-                    <a href="../create_post"><li><i class="fa-solid fa-ghost"></i>Create post</li></a>
-                    <a href="../search_post"><li>Лента</li></a>
+                <ul class="first_window_profile" style="width:20vw;">
+                    <a href="/create_posts" style="text-decoration: none;"><li style="list-style-type: none;">Create post</li></a>
+                    <a href="/search_posts" style="text-decoration: none;"><li style="list-style-type: none;">Лента</li></a>
                 </ul>
-
-            <div class="first_window_profile" style="width:30%;">
-                <img src="" alt="Фото">
-                <p>Пол:---</p>
-                <p>Возраст:--</p>
-            </div>
-            <div class="first_window_profile" style="width:30%;">
+            <span>
+                <div class="first_window_profile" style="width:30vw;">
+                    <img src="" alt="Фото">
+                    <p>Пол:---</p>
+                    <p>Возраст:--</p>
+                </div>
+                <div class="form_posts_profile">
+                    <h4>Your posts:</h4>
+                    <ul>
+                        {% for poll in users_polls %}
+                            <li id='element'>{{ poll }}</li>
+                            <script>
+                                element = document.getElementById('element');
+                                element.id = counter.toString();
+                                counter += 1;
+                                element.innerHTML = element.innerText;
+                                console.log(element.innerHTML);
+                            </script>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </span>
+            <div class="first_window_profile" style="width:30vw;">
                 <h4>{{ name }}/ФИО</h4>
                 <h4>Описание:</h4>
                 <p>blablabla</p>
             </div>
         </article>
-        <div class="form_posts_profile">
-            <h4>Your posts:</h4>
-            <ul>
-                {% for poll in users_polls %}
-                    <li id='element'>{{ poll }}</li>
-                    <script>
-                        element = document.getElementById('element');
-                        element.id = counter.toString();
-                        counter += 1;
-                        element.innerHTML = element.innerText;
-                        console.log(element.innerHTML);
-                    </script>
-                {% endfor %}
-            </ul>
-        </div>
+
 {% endblock %}
 
 {% block footer %}

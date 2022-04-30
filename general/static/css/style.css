@@ -83,8 +83,12 @@
     }
     .article_profile {
         display: inline-block;
-        margin: 150px 12%;
-        width:80%;
+        margin: 150px 10vw;
+        width:81vw;
+    }
+    .create_posts_class {
+        margin: 10vh auto;
+        width: 50vw;
     }
     .first_window_profile {
         display: inline-block;
@@ -111,12 +115,16 @@
         text-align: center;
         font-family: 'Roboto Slab', serif;
     }
+    span {
+        display:inline-block;
+        width: 30vw;
+    }
     .form_posts_profile {
-        position: relative;
+
         z-index: 1;
         background-color: #d2d4dc;
-        width: 360px;
-        margin: 100px auto;
+        width: 30vw;
+        margin: 10px 0;
         padding: 45px;
         text-align: center;
         border: 1px solid black;

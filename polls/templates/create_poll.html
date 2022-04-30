@@ -7,9 +7,9 @@
 <body>
     <div class="login-page">
         <div class="form">
-            <form action="/create_poll/" method="POST">
+            <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form }}
                 <p type="button" ><input type="submit" value="Submit" class="fbutton"></p>
             </form>
     
