@@ -14,7 +14,16 @@
         <h2 class="tag" style="margin: 5% 0 0 0;">The Road to Love</h2>
         <form action='/signup/' method='POST'>
             {% csrf_token %}
-            {{ form.as_p }}
+
+            <ul class="ul_login">
+                <li>{{ form.username }}</li>
+                <li>{{ form.password }}</li>
+                <li>{{ form.confirm_password }}</li>
+                <li>{{ form.first_name }}</li>
+                <li>{{ form.second_name }}</li>
+                <li>{{ form.age }}</li>
+                <li><p>Your gender: {{ form.gender }}</p></li>
+            </ul>
             <button>Sign up</button>
             <a href="/">Nav page</a>
         </form>
@@ -23,4 +32,3 @@
 
     <p style="text-align: center; color: red;"> {{fail}}</p>
 {% endblock %}
-
