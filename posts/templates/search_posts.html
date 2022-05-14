@@ -5,17 +5,37 @@
 {% block name_page %} Search Posts {% endblock %}
 
 {% block main %}
-    <div class="search_posts_class">
-        <h1>Лента</h1>
-        {% if posts %}
-            {% for el in posts %}
-                <div class="alert alert-warning">
-                    <h3>{{ el.title }}</h3>
-                    <p>{{ el.full_text }}</p>
+<article class="article_profile">
+    <ul class="first_window_profile" style="width:20vw;">
+        <a href="/profile" style="text-decoration: none;"><li><i class="fas fa-home"></i> Profile</li></a>
+        <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-plus"></i> Create post</li></a>
+        <a href="/search_posts" style="text-decoration: none;"><li><i class="fas fa-calendar"></i> News feed</li></a>
+        <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-address-card"></i> Edit Profile</li></a>
+    </ul>
+    <div class="post_view">
+        {% if posts_to_show %}
+            <script>
+                let counter = 0;
+                let element;
+            </script>
+            {% for el in posts_to_show %}
+                <div class="search_posts_class" style="margin: 0 0 20px 0;">
+                    <a href='../profile/?{{ el.5 }}' style="text-decoration: underline black;"><i class="fas fa-user"></i> {{ el.3 }} {{ el.4 }}</a>
+                    <h3 id="element">{{ el.0 }}</h3>
+                    <p>{{ el.1 }}</p>
+                    <p>{{ el.2 }}</p>
+                    <button class="btn btn-success" type="submit" name="Find"><i class="fas fa-arrow-up"></i> Respond</button>
+                    <script>
+                         element = document.getElementById('element');
+                         element.id = counter.toString();
+                         counter += 1;
+                         element.innerHTML = element.innerText;
+                    </script>
                 </div>
             {% endfor %}
         {% else %}
             <p>У вас нет записей!</p>
         {% endif %}
     </div>
+</article>
 {% endblock %}

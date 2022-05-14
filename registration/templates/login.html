@@ -14,7 +14,10 @@
         <h2 class="tag" style="margin: 5% 0 0 0;">The Road to Love</h2>
         <form action='/login/' method='POST'>
             {% csrf_token %}
-            {{ form.as_p }}
+            <ul class="ul_login">
+                <li>{{ form.username }}</li>
+                <li>{{ form.password }}</li>
+            </ul>
             <button>Log in</button>
             <a href="/">Nav page</a>
         </form>

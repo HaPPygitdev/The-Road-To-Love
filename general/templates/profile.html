@@ -13,20 +13,26 @@
         <article class="article_profile">
 
                 <ul class="first_window_profile" style="width:20vw;">
-                    <a href="/create_posts" style="text-decoration: none;"><li style="list-style-type: none;">Create post</li></a>
-                    <a href="/search_posts" style="text-decoration: none;"><li style="list-style-type: none;">Лента</li></a>
+                    <a href="/profile" style="text-decoration: none;"><li><i class="fas fa-home"></i> Profile</li></a>
+                    <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-plus"></i> Create post</li></a>
+                    <a href="/search_posts" style="text-decoration: none;"><li><i class="fas fa-calendar"></i> News feed</li></a>
+                    <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-address-card"></i> Edit Profile</li></a>
                 </ul>
             <span>
                 <div class="first_window_profile" style="width:30vw;">
                     <img src="" alt="Фото">
-                    <p>Пол:---</p>
-                    <p>Возраст:--</p>
+                    <br>
+                    <br>
+                    <h5>Gender: {{ gender }}</h5>
+                    <h5>Age: {{ age }}</h5>
                 </div>
-                <div class="form_posts_profile">
-                    <h4>Your posts:</h4>
-                    <ul>
-                        {% for poll in users_polls %}
-                            <li id='element'>{{ poll }}</li>
+                {% if users_posts %}
+                    {% for post in users_posts %}
+                        <div class="search_posts_class">
+                            <a href='' style="text-decoration: underline black;"><i class="fas fa-user"></i> {{ first_name }} {{ second_name }}</a>
+                            <h3 id="element">{{ post.0 }}</h3>
+                            <p>{{ post.1 }}</p>
+                            <p>{{ post.2 }}</p>
                             <script>
                                 element = document.getElementById('element');
                                 element.id = counter.toString();
@@ -34,13 +40,15 @@
                                 element.innerHTML = element.innerText;
                                 console.log(element.innerHTML);
                             </script>
-                        {% endfor %}
-                    </ul>
-                </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h4 style="color: #eb5959; text-align: center;">There could be your posts here</h4>
+                {% endif %}
             </span>
             <div class="first_window_profile" style="width:30vw;">
-                <h4>{{ name }}/ФИО</h4>
-                <h4>Описание:</h4>
+                <h4 style="text-decoration: underline #eb5959;">{{ first_name }} {{ second_name }}</h4>
+                <h4>Description:</h4>
                 <p>blablabla</p>
             </div>
         </article>

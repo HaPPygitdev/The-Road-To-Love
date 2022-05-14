@@ -33,6 +33,5 @@ urlpatterns = [
     path('profile/', profile_page),
     path('logout/', registration.views.logout),
     path('access_denied/', registration.views.access_denied),
-    path('profile_filling/', registration.views.profile_filling),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

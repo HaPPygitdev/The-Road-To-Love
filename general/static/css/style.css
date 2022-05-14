@@ -66,16 +66,16 @@
         padding: 25px;
         color: #FFFFFF;
         font-size: 14px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
+        transition: 0.3s;
         cursor: pointer;
 
     }
    .for_button:hover {
         background: #e5e6eb;
+        transform: scale(1.03);
     }
     body {
-        background-color: #c23456;
+        background-color: #2c2c2c;
     }
     .favicon {
         background-color: #d3d3d6;
@@ -87,7 +87,12 @@
         width:81vw;
     }
     .create_posts_class {
-        margin: 10vh auto;
+        display: inline-block;
+        vertical-align:top;
+        padding: 30px;
+        background-color: #d2d4dc;
+        border: 1px solid black;
+        border-radius: 20px;
         width: 50vw;
     }
     .first_window_profile {
@@ -95,10 +100,12 @@
         vertical-align:top;
         background-color: #d2d4dc;
         padding: 15px;
+        list-style: none;
         text-align: center;
         border: 1px solid black;
         border-radius: 20px;
      }
+
      .for_button_out {
         font-family: "Roboto", sens-serif;
         background: #afafaf;
@@ -108,9 +115,21 @@
         bottom: 30px;
         right: 30px;
      }
+     .first_window_profile li {
+        color: black;
+        display: block;
+        margin: 20px;
+        text-align: left;
+        transition: 0.3s;
+     }
+     .first_window_profile li:hover, .first_window_profile a:hover {
+           color: #eb5959;
+           transform: scale(1.05);
+     }
      .for_button_out:hover {
-        background-color: #e5e6eb;
-      }
+        background: #e5e6eb;
+        transform: scale(1.03);
+    }
       p{
         text-align: center;
         font-family: 'Roboto Slab', serif;
@@ -119,17 +138,7 @@
         display:inline-block;
         width: 30vw;
     }
-    .form_posts_profile {
 
-        z-index: 1;
-        background-color: #d2d4dc;
-        width: 30vw;
-        margin: 10px 0;
-        padding: 45px;
-        text-align: center;
-        border: 1px solid black;
-        border-radius: 20px;
-    }
     .form_login {
         position: relative;
         z-index: 1;
@@ -142,20 +151,9 @@
         border: 1px solid black;
         border-radius: 20px;
     }
-    .form_login input {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 15px;
-        border-radius: 20px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
+
     .form_login button{
-        font-family: "Roboto Slab", sans-serif;
+        font-family: "Roboto", sans-serif;
         text-transform: uppercase;
         outline: 0;
         background: #afafaf;
@@ -164,10 +162,55 @@
         padding: 15px;
         color: #FFFFFF;
         font-size: 14px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
+
+        transition: 0.3s;
         cursor: pointer;
     }
    .form_login button:hover {
         background: #e5e6eb;
+        transform: scale(1.03);
     }
+
+    .search_posts_class {
+
+        vertical-align:top;
+        background-color: #5e5e5e;
+        padding: 15px;
+        color: white;
+        list-style: none;
+        text-align: center;
+        border: 1px solid #d2d4dc;
+        border-radius: 20px;
+        margin: 20px 0;
+    }
+
+    .post_view {
+        display: inline-block;
+        width: 50vw;
+
+    }
+
+    .search_posts_class a {
+        color: black;
+        display: block;
+        margin: 20px;
+        text-align: left;
+        transition: 0.3s;
+     }
+     .search_posts_class a:hover {
+           color: #eb5959;
+           transform: scale(1.05);
+     }
+
+     .ul_login {
+        list-style: none;
+        margin:20px auto;
+        position: relative;
+        left: -15px;
+     }
+
+     .ul_login li {
+        text-align: left;
+        margin: 10px auto;
+
+     }

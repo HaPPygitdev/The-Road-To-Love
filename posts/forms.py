@@ -1,11 +1,11 @@
-from .models import Posts
+from general.models import Posts
 from django.forms import ModelForm, TextInput, Textarea
 
 
 class PostsForm(ModelForm):
     class Meta:
         model = Posts
-        fields = ['title', 'full_text']
+        fields = ['title', 'place', 'full_text']
 
         widgets = {
             "title": TextInput(attrs={
