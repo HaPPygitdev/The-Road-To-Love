@@ -21,6 +21,7 @@ def login_page(request):
         if form.is_valid():
             username = form.data['username'].strip()
             password = form.data['password'].strip()
+            coordinate = form.data['coordinate'].strip()
 
             try:
                 user = User.objects.get(username=username)
@@ -29,6 +30,7 @@ def login_page(request):
                     response = HttpResponseRedirect('/profile/')
                     session = ''.join(choice(string.hexdigits) for _ in range(30))
                     user.session = session
+                    user.coordinate = coordinate
                     user.save()
                     response.set_cookie('session', session)
                     return response
@@ -55,6 +57,7 @@ def sign_up_page(request):
             second_name = form.data['second_name'].strip()
             age = form.data['age'].strip()
             gender = form.data['gender'].strip()
+            coordinate = form.data['coordinate'].strip()
 
             user = User.objects.filter(username=username)
             if not user:
@@ -62,7 +65,7 @@ def sign_up_page(request):
                     salt = ''.join(choice(string.hexdigits) for _ in range(30))
                     user = User(username=username,
                                 password_hash=hashlib.sha256((password + salt).encode('utf-8')).hexdigest(),
-                                first_name=first_name, second_name=second_name, age=age, gender=gender)
+                                first_name=first_name, second_name=second_name, age=age, gender=gender, coordinate=coordinate)
                     user.salt = salt
                     response = HttpResponseRedirect('/profile/')
                     session = ''.join(choice(string.hexdigits) for _ in range(30))

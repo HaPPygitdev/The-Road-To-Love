@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile Guest {% endblock %}
+
+{% block name_page %} Profile {{ article.first_name }} {{ article.second_name }}{% endblock %}
+
+{% block main %}
+
+
+        <article class="article_profile">
+
+            {% include 'navul.html' %}
+
+
+
+            <span>
+                <div class="first_window_profile" style="width:30vw;">
+                    <img src="" alt="Фото">
+                    <br>
+                    <br>
+                    <h5>Gender: {{ article.gender }}</h5>
+                    <h5>Age: {{ article.age }}</h5>
+                </div>
+
+
+            </span>
+            <div class="first_window_profile" style="width:30vw;">
+                <h4 style="text-decoration: underline #eb5959;"> {{ article.first_name }} {{ article.second_name }}</h4>
+                <h4>Description:</h4>
+                <p>blablabla</p>
+            </div>
+        </article>
+
+{% endblock %}

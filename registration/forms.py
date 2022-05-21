@@ -1,12 +1,12 @@
 from django import forms
-from general.models import PIS_TYPE, Temporary
-from django.forms import ModelForm, TextInput
+from general.models import Temporary
+from django.forms import ModelForm, TextInput, Textarea
 
 
 class LoginForm(ModelForm):
     class Meta:
         model = Temporary
-        fields = ['username', 'password']
+        fields = ['username', 'password', 'coordinate']
 
         widgets = {
             "username": TextInput(attrs={
@@ -16,7 +16,13 @@ class LoginForm(ModelForm):
             "password": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Password'
-            })
+            }),
+            "coordinate": Textarea(attrs={
+                'class': 'silent-coords',
+                'placeholder': 'coordinate',
+                'id': 'demo',
+
+            }),
         }
 
 
@@ -28,7 +34,7 @@ class LoginForm(ModelForm):
 class SignUpForm(ModelForm):
     class Meta:
         model = Temporary
-        fields = ['username', 'password', 'confirm_password', 'first_name', 'second_name', 'age', 'gender']
+        fields = ['username', 'password', 'confirm_password', 'first_name', 'second_name', 'age', 'gender', 'coordinate']
 
         widgets = {
             "username": TextInput(attrs={
@@ -54,5 +60,10 @@ class SignUpForm(ModelForm):
             "age": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Age'
-            })
+            }),
+            "coordinate": Textarea(attrs={
+                'class': 'silent-coords',
+                'placeholder': 'coordinate',
+                'id': 'demo'
+            }),
         }

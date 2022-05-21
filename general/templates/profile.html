@@ -12,12 +12,7 @@
 
         <article class="article_profile">
 
-                <ul class="first_window_profile" style="width:20vw;">
-                    <a href="/profile" style="text-decoration: none;"><li><i class="fas fa-home"></i> Profile</li></a>
-                    <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-plus"></i> Create post</li></a>
-                    <a href="/search_posts" style="text-decoration: none;"><li><i class="fas fa-calendar"></i> News feed</li></a>
-                    <a href="/create_posts" style="text-decoration: none;"><li><i class="fas fa-address-card"></i> Edit Profile</li></a>
-                </ul>
+            {% include 'navul.html' %}
             <span>
                 <div class="first_window_profile" style="width:30vw;">
                     <img src="" alt="Фото">
@@ -25,6 +20,7 @@
                     <br>
                     <h5>Gender: {{ gender }}</h5>
                     <h5>Age: {{ age }}</h5>
+                    <h6>{{ coordinate }}</h6>
                 </div>
                 {% if users_posts %}
                     {% for post in users_posts %}
@@ -49,9 +45,11 @@
             <div class="first_window_profile" style="width:30vw;">
                 <h4 style="text-decoration: underline #eb5959;">{{ first_name }} {{ second_name }}</h4>
                 <h4>Description:</h4>
-                <p>blablabla</p>
+                <p>{{ description }}</p>
+                <a href='{{ cor_current }}'>uytfgbhnj</a>
             </div>
         </article>
+
 
 {% endblock %}
 

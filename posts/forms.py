@@ -1,4 +1,4 @@
-from general.models import Posts
+from general.models import Posts, Vote
 from django.forms import ModelForm, TextInput, Textarea
 
 
@@ -14,7 +14,12 @@ class PostsForm(ModelForm):
             }),
             "full_text": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Текст статьи'
+                'placeholder': 'Текст статьи',
             }),
+
         }
+
+
+
+
 

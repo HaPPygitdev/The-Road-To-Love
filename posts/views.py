@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from general.models import Posts
+from django.utils import timezone
 from .forms import PostsForm
-from general.models import User
+from general.models import User, Vote
 from scripts import login_required
+from django.views.generic import DetailView
+import ast
+import re
 
 
 # Create your views here.
@@ -12,12 +16,12 @@ def search_posts(request):
 
     for post in Posts.objects.order_by('-id'):
         user = User.objects.get(id=post.author_p_id)
-        context['posts_to_show'].append(
-            [post.title, post.place, post.full_text, user.first_name, user.second_name, user.id])
 
-    # if request.method == "POST":
-    #     if request.POST.get('Find'):
-    #         form =
+        context['posts_to_show'].append(
+            [post, user])
+
+    user = User.objects.get(session=request.COOKIES['session'])
+    context['cur'] = user
 
     return render(request, 'search_posts.html', context)
 
@@ -30,6 +34,8 @@ def create_posts(request):
         posts = Posts()
         form = PostsForm(request.POST)
         if form.is_valid():
+            vote = Vote()
+
             posts.title = form.data['title']
             posts.place = form.data['place']
             posts.full_text = form.data['full_text']
@@ -48,3 +54,16 @@ def create_posts(request):
     }
 
     return render(request, 'create_posts.html', data)
+
+
+class ProfileDetailView(DetailView):
+    model = User
+
+    template_name = 'profile_guest.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+
+    context_object_name = 'article'

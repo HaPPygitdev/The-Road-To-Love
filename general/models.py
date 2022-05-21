@@ -20,23 +20,17 @@ class User(models.Model):
     second_name = models.CharField(max_length=100, blank=True)
     age = models.CharField(max_length=3, blank=True)
     gender = models.CharField(max_length=10, choices=PIS_TYPE, blank=True)
+    coordinate = models.TextField(max_length=200)
     session = models.CharField(max_length=200, blank=True)
     salt = models.CharField(max_length=200, blank=False)
-
-
-class Poll(models.Model):
-    title = models.CharField(max_length=200, blank=False)
-    description = models.CharField(max_length=500, blank=True)
-    variants = models.CharField(max_length=2000, blank=False)
-    votes = models.CharField(max_length=100, blank=False)
-    author = models.ForeignKey('User', on_delete=models.CASCADE, blank=False, default=None)
-    type = models.CharField(max_length=4, choices=POLL_TYPES, blank=False)
+    description = models.TextField(max_length=500, default='blablabla')
 
 
 class Vote(models.Model):
-    user_id = models.CharField(max_length=200, blank=False)
-    poll_id = models.CharField(max_length=200, blank=False)
-    selected_options = models.CharField(max_length=200, blank=False)
+    user_1_id = models.CharField(max_length=200, blank=False)
+    user_2_id = models.CharField(max_length=200, blank=False)
+    post_id = models.CharField(max_length=200, blank=False)
+
 
 
 PLACE_TYPES = (
@@ -60,5 +54,8 @@ class Temporary(models.Model):
     second_name = models.CharField(max_length=100, blank=True)
     age = models.CharField(max_length=3, blank=True)
     gender = models.CharField(max_length=10, choices=PIS_TYPE, blank=True)
+    coordinate = models.TextField(max_length=200, default='Coordinate')
     session = models.CharField(max_length=200, blank=True)
     salt = models.CharField(max_length=200, blank=False)
+
+

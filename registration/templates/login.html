@@ -17,6 +17,25 @@
             <ul class="ul_login">
                 <li>{{ form.username }}</li>
                 <li>{{ form.password }}</li>
+
+                <li>{{ form.coordinate }}</li>
+                <script>
+
+                    var x = document.getElementById("demo");
+
+                    function getLocation() {
+                    if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Браузер не поддерживает геолокацию.";
+                        }
+                    }
+
+                    function showPosition(position) {
+                        x.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+                    }
+                    getLocation()
+                </script>
             </ul>
             <button>Log in</button>
             <a href="/">Nav page</a>

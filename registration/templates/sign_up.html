@@ -23,8 +23,29 @@
                 <li>{{ form.second_name }}</li>
                 <li>{{ form.age }}</li>
                 <li><p>Your gender: {{ form.gender }}</p></li>
+
+                <li>{{ form.coordinate }}</li>
+
+
+
+            <script>
+
+            var x = document.getElementById("demo");
+
+            function getLocation() {
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Браузер не поддерживает геолокацию.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+            }
+            </script>
             </ul>
-            <button>Sign up</button>
+            <button onclick="getLocation()">Sign up</button>
             <a href="/">Nav page</a>
         </form>
     </div>

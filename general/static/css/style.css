@@ -214,3 +214,8 @@
         margin: 10px auto;
 
      }
+
+
+     .silent-coords {
+        display: none;
+     }
