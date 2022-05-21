@@ -65,11 +65,12 @@ def sign_up_page(request):
                     salt = ''.join(choice(string.hexdigits) for _ in range(30))
                     user = User(username=username,
                                 password_hash=hashlib.sha256((password + salt).encode('utf-8')).hexdigest(),
-                                first_name=first_name, second_name=second_name, age=age, gender=gender, coordinate=coordinate)
+                                first_name=first_name, second_name=second_name, age=age, gender=gender)
                     user.salt = salt
                     response = HttpResponseRedirect('/profile/')
                     session = ''.join(choice(string.hexdigits) for _ in range(30))
                     user.session = session
+                    user.coordinate = coordinate
                     user.save()
                     response.set_cookie('session', session)
                     return response
@@ -82,7 +83,6 @@ def sign_up_page(request):
     context['form'] = SignUpForm()
     context['fail'] = fail
     return render(request, 'sign_up.html', context)
-
 
 
 @login_required

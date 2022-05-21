@@ -23,6 +23,8 @@ def search_posts(request):
     user = User.objects.get(session=request.COOKIES['session'])
     context['cur'] = user
 
+
+
     return render(request, 'search_posts.html', context)
 
 
@@ -36,12 +38,16 @@ def create_posts(request):
         if form.is_valid():
             vote = Vote()
 
+            user = User.objects.get(session=request.COOKIES['session'])
             posts.title = form.data['title']
             posts.place = form.data['place']
             posts.full_text = form.data['full_text']
-            posts.author_p = User.objects.get(session=request.COOKIES['session'])
+            posts.author_p = user
+            vote.post_id = posts.id
+            vote.user_1_id = user.id
 
             posts.save()
+            vote.save()
             return redirect('/search_posts')
         else:
             error = 'The form is filled out incorrectly'
