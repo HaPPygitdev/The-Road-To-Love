@@ -32,5 +32,11 @@ urlpatterns = [
     path('logout/', registration.views.logout),
     path('access_denied/', registration.views.access_denied),
     path('edit_profile/', general.views.edit_profile_page),
+    path('responds/', posts.views.responds_view),
+    path('message/', posts.views.message_view)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

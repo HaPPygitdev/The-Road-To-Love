@@ -1,6 +1,5 @@
-
 from .models import User
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, Textarea
 
 
 class UsersForm(ModelForm):
@@ -15,3 +14,5 @@ class UsersForm(ModelForm):
 
             })
         }
+
+

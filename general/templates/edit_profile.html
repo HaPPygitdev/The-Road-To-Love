@@ -5,18 +5,16 @@
 {% block name_page %} Edit Profile {% endblock %}
 
 {% block main %}
-<article class="article_profile">
     {% include 'navul.html' %}
     <div class="create_posts_class">
         <h1 style="text-align: center; color: black;">Edit your Profile</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <h4>Description:</h4>
             {{ form.description }}<br>
-
+            <input type="file" name="myfile1">
             <button class="btn btn-success">Confirm</button>
         </form>
         <div>{{ error }}</div>
     </div>
-</article>
 {% endblock %}

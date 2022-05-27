@@ -2,25 +2,27 @@
 
 {% block title %} Profile {% endblock %}
 
-{% block name_page %} Profile {% endblock %}
+{% block name_page %}Profile{% endblock %}
 
 {% block main %}
         <script>
             let counter = 0;
             let element;
         </script>
-
+        {% include 'navul.html' %}
         <article class="article_profile">
 
-            {% include 'navul.html' %}
             <span>
-                <div class="first_window_profile" style="width:30vw;">
-                    <img src="" alt="Фото">
-                    <br>
-                    <br>
+                <div class="first_window_profile">
+                    <div class="first_window_profile_fam_off">
+                        <img src='{{ photo }}' alt="Фото" style="width: 40vw; border-radius: 100%; text-align: center;">
+                    </div>
+                    <h4 style="text-decoration: underline #eb5959;">{{ first_name }} {{ second_name }}</h4>
+                    <h4>Description:</h4>
+                    <p>{{ description }}</p>
                     <h5>Gender: {{ gender }}</h5>
                     <h5>Age: {{ age }}</h5>
-                    <h6>{{ coordinate }}</h6>
+
                 </div>
                 {% if users_posts %}
                     {% for post in users_posts %}
@@ -42,17 +44,13 @@
                     <h4 style="color: #eb5959; text-align: center;">There could be your posts here</h4>
                 {% endif %}
             </span>
-            <div class="first_window_profile" style="width:30vw;">
-                <h4 style="text-decoration: underline #eb5959;">{{ first_name }} {{ second_name }}</h4>
-                <h4>Description:</h4>
-                <p>{{ description }}</p>
-                <a href='{{ cor_current }}'>uytfgbhnj</a>
+            <div class="first_window_profile_fam" >
+                <img src='{{ photo }}' alt="Фото" style="width: 10vw; border-radius: 100%;">
+
             </div>
         </article>
-
-
 {% endblock %}
 
 {% block footer %}
-    <p><input type="button" value=" Log out " class = "for_button_out" onclick="window.location.href = '../logout';" ></p>
+
 {% endblock %}

@@ -5,19 +5,19 @@
 {% block name_page %} Create Post {% endblock %}
 
 {% block main %}
-<article class="article_profile">
     {% include 'navul.html' %}
     <div class="create_posts_class">
-        <h1 style="text-align: center; color: black;">Создай свой пост!</h1>
+        <h1 style="text-align: center; color: black;">Create your own post!</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.title }}<br>
-            <p style="color: black;">What place do you want to visit? {{ form.place }}</p> <br>
+            <p style="color: black;">What place do you want to visit?</p>
+            {{ form.place }} </br>
             {{ form.full_text }}<br>
 
             <button class="btn btn-success" type="submit">Create post</button>
         </form>
         <div>{{ error }}</div>
     </div>
-</article>
+
 {% endblock %}

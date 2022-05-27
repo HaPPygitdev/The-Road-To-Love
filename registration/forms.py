@@ -10,8 +10,8 @@ class LoginForm(ModelForm):
 
         widgets = {
             "username": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Username'
+                'class': 'phone_mask',
+                'placeholder': 'Phone number'
             }),
             "password": TextInput(attrs={
                 'class': 'form-control',
@@ -26,11 +26,6 @@ class LoginForm(ModelForm):
         }
 
 
-# class LoginForm(forms.Form):
-#     username = forms.CharField(max_length=100)
-#     password = forms.CharField(max_length=100)
-
-
 class SignUpForm(ModelForm):
     class Meta:
         model = Temporary
@@ -38,8 +33,8 @@ class SignUpForm(ModelForm):
 
         widgets = {
             "username": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Username'
+                'class': 'phone_mask',
+                'placeholder': 'Phone number'
             }),
             "password": TextInput(attrs={
                 'class': 'form-control',

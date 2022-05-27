@@ -14,7 +14,7 @@ PIS_TYPE = (
 
 
 class User(models.Model):
-    username = models.CharField(max_length=100, unique=True, blank=False)
+    username = models.CharField(max_length=30, unique=True, blank=False)
     password_hash = models.CharField(max_length=200, blank=False)
     first_name = models.CharField(max_length=100, blank=True)
     second_name = models.CharField(max_length=100, blank=True)
@@ -24,6 +24,7 @@ class User(models.Model):
     session = models.CharField(max_length=200, blank=True)
     salt = models.CharField(max_length=200, blank=False)
     description = models.TextField(max_length=500, default='blablabla')
+    photo = models.CharField(max_length=200, blank=True)
 
 
 class Vote(models.Model):
@@ -31,6 +32,13 @@ class Vote(models.Model):
     user_2_id = models.CharField(max_length=200, blank=False)
     post_id = models.CharField(max_length=200, blank=False)
 
+
+class Message(models.Model):
+    user_1_id = models.CharField(max_length=200, blank=False)
+    user_2_id = models.CharField(max_length=200, blank=False)
+    middle = models.CharField(max_length=200, blank=False)
+    place_name = models.CharField(max_length=200, blank=False, default=None, null=True)
+    place_address = models.CharField(max_length=200, blank=False, default=None, null=True)
 
 
 PLACE_TYPES = (

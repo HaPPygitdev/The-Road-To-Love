@@ -6,28 +6,25 @@
 
 {% block main %}
 
+        {% include 'navul.html' %}
 
         <article class="article_profile">
-
-            {% include 'navul.html' %}
-
-
-
             <span>
-                <div class="first_window_profile" style="width:30vw;">
-                    <img src="" alt="Фото">
-                    <br>
-                    <br>
+                <div class="first_window_profile">
+                    <div class="first_window_profile_fam_off">
+                        <img src='{{ article.photo }}' alt="Фото" style="width: 40vw; border-radius: 100%; text-align: center;">
+                    </div>
+                    <h4 style="text-decoration: underline #eb5959;"> {{ article.first_name }} {{ article.second_name }}</h4>
+                    <h4>Description:</h4>
+                    <p>blablabla</p>
                     <h5>Gender: {{ article.gender }}</h5>
                     <h5>Age: {{ article.age }}</h5>
                 </div>
 
 
             </span>
-            <div class="first_window_profile" style="width:30vw;">
-                <h4 style="text-decoration: underline #eb5959;"> {{ article.first_name }} {{ article.second_name }}</h4>
-                <h4>Description:</h4>
-                <p>blablabla</p>
+            <div class="first_window_profile_fam">
+                <img src='{{ article.photo }}' alt="Фото" style="width: 10vw; border-radius: 100%;">
             </div>
         </article>
 

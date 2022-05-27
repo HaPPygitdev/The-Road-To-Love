@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from scripts import login_required
 from general.models import User, Posts
 from .forms import UsersForm
-from posts.forms import PostsForm
-from django.http import HttpResponseRedirect
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -13,14 +12,12 @@ def profile_page(request):
     user = User.objects.get(session=request.COOKIES['session'])
 
     context = {'name': user.username, 'first_name': user.first_name, 'second_name': user.second_name, 'age': user.age,
-               'gender': user.gender, 'coordinate': user.coordinate, 'description': user.description, 'users_posts': []}
+               'gender': user.gender, 'coordinate': user.coordinate, 'description': user.description,
+               'photo': user.photo, 'users_posts': []}
 
     posts = Posts.objects.filter(author_p_id=user.id)
     for i in posts:
         context['users_posts'].append([i.title, i.place, i.full_text])
-    cor_current = user.coordinate.split('<br>')
-    context['cor_current'] = "https://catalog.api.2gis.com/3.0/items?q=cafe&sort_point=" + str(
-        cor_current[0]) + "," + str(cor_current[1]) + "&key=ruswpk8061"
 
     return render(request, 'profile.html', context)
 
@@ -34,10 +31,22 @@ def index_page(request):
 @login_required
 def edit_profile_page(request):
     error = ''
-
+    context = {}
     if request.method == 'POST':
         user = User.objects.get(session=request.COOKIES['session'])
         form = UsersForm(request.POST)
+        if request.FILES:
+            file = request.FILES['myfile1']
+            fs = FileSystemStorage()
+            # сохраняем на файловой системе
+            filename = fs.save(file.name, file)
+            # получение адреса по которому лежит файл
+            file_url = fs.url(filename)
+
+            user.photo = file_url
+
+            user.save()
+
         if form.is_valid():
             user.description = form.data['description']
 
@@ -48,9 +57,7 @@ def edit_profile_page(request):
 
     form = UsersForm()
 
-    context = {
-        'form': form,
-        'error': error
-    }
+    context['form'] = form
+    context['error'] = error
 
     return render(request, 'edit_profile.html', context)

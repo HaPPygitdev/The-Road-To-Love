@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Responds {% endblock %}
+
+{% block name_page %} Responds {% endblock %}
+
+{% block main %}
+    {% include 'navul.html' %}
+
+<article class="article_profile">
+
+    <span class="pipip">
+        <h3>Posts that have been responded to:</h3>
+        {% if posts_to_show_1 %}
+            {% for el in posts_to_show_1 %}
+                <div class="search_posts_class" style="margin: 0 0 20px 0;">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <p><a href="{% url 'profile-detail' el.2.id %}" style="text-decoration: underline black; display: inline-block;" name="pro_g"><i class="fas fa-user"></i> {{ el.2.first_name }} {{ el.2.second_name }}</a> responded to your post</p>
+                        <hr>
+                        <a href="/profile" style="text-decoration: underline black;" name="pro_g"><i class="fas fa-user"></i> {{ el.1.first_name }} {{ el.1.second_name }}</a>
+
+                        <h3>{{ el.0.title }}</h3>
+                        <p>{{ el.0.place }}</p>
+                        <p>{{ el.0.full_text }}</p>
+
+                        <button class="btn btn-secondary" type="submit" name="Reject" value="{{ el.0.id }}" style="display: inline-block; margin: 10px 30px 10px 0;">Reject</button>
+                        <button class="btn btn-success" type="submit" name="Accept" value="{{ el.0.id }}" style="display: inline-block;">Accept</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+                <p style="color: #eb5959;">You don't have posts!</p>
+        {% endif %}
+    </span>
+    <span class="pipip">
+        <h3>Posts that you have responded to:</h3>
+        {% if posts_to_show_2 %}
+            {% for el in posts_to_show_2 %}
+                <div class="search_posts_class" style="margin: 0 0 20px 0;">
+                    {% csrf_token %}
+
+                    <a href="{% url 'profile-detail' el.1.id %}" style="text-decoration: underline black;" name="pro_g"><i class="fas fa-user"></i> {{ el.1.first_name }} {{ el.1.second_name }}</a>
+
+                    <h3>{{ el.0.title }}</h3>
+                    <p>{{ el.0.place }}</p>
+                    <p>{{ el.0.full_text }}</p>
+
+                </div>
+            {% endfor %}
+        {% else %}
+                <p style="color: #eb5959;">You don't have posts!</p>
+        {% endif %}
+    </span>
+</article>
+{% endblock %}

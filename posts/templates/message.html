@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Dates {% endblock %}
+
+{% block name_page %} Dates {% endblock %}
+
+{% block main %}
+    {% include 'navul.html' %}
+        <span class="span_message">
+            {% if messages %}
+                {% for el in messages %}
+                    <div class="search_posts_class" style="margin: 0 0 20px 0;">
+                        <p>You have an appointment with <a href="{% url 'profile-detail' el.1.id %}" style="text-decoration: underline black; display: inline-block;" name="pro_g"><i class="fas fa-user"></i> {{ el.1.first_name }} {{ el.1.second_name }}</a></p>
+                        <hr>
+                        <p>The meeting place is a {{ el.0.place_name }}</p>
+                        <p>Address: {{ el.0.place_address }}</p>
+                        <hr>
+                        <p> Phone number for communication with {{ el.1.first_name }} {{ el.1.second_name }}: <i>{{ el.1.username }}</i></p>
+                        <hr>
+                        <h4 style="color: #00b300;">Good luck!</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </span>
+        <span class="span_message">
+            {% if places %}
+                <h3>Choose a meeting place</h3>
+                {% for el in places %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="search_posts_class" style="margin: 0 0 20px 0;">
+                            <p>Meeting place: {{ el.0.name }}</p>
+                            <p>Address: {{ el.0.address_name }}</p>
+                            <button class="btn btn-success" type="submit" name="Fin" value="{{ el.0.name }}|{{ el.0.address_name }}|{{ el.1 }}">Choose</button>
+                        </div>
+                    </form>
+                {% endfor %}
+            {% endif %}
+        </span>
+{% endblock %}

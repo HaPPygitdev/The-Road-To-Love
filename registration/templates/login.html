@@ -15,7 +15,11 @@
         <form action='/login/' method='POST'>
             {% csrf_token %}
             <ul class="ul_login">
+                <script src="js/jquery.maskedinput.min.js"></script>
                 <li>{{ form.username }}</li>
+                <script>
+                    $(".phone_mask").mask("+7(999)999-99-99");
+                </script>
                 <li>{{ form.password }}</li>
 
                 <li>{{ form.coordinate }}</li>

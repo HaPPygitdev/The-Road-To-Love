@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %} Search posts {% endblock %}
+{% block title %} News feed {% endblock %}
 
-{% block name_page %} Search Posts {% endblock %}
+{% block name_page %} News feed {% endblock %}
 
 {% block main %}
-<article class="article_profile">
     {% include 'navul.html' %}
+
+<article class="article_profile">
+
     <div class="post_view">
         {% if posts_to_show %}
             {% for el in posts_to_show %}
@@ -24,13 +26,16 @@
 
 
                         {% if el.1.id != cur.id %}
-                            <button class="btn btn-success" type="submit"><i class="fas fa-arrow-up"></i> Respond</button>
+                            <button class="btn btn-success" type="submit" name="Find" value="{{ el.0.id }}"><i class="fas fa-arrow-up"></i> Respond</button>
+                        {% endif %}
+                        {% if error %}
+                            <p>{{ error }}</p>
                         {% endif %}
                     </form>
                 </div>
             {% endfor %}
         {% else %}
-            <p>У вас нет записей!</p>
+            <p>You don't have posts!</p>
         {% endif %}
     </div>
 </article>

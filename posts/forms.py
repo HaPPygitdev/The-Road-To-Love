@@ -1,5 +1,5 @@
 from general.models import Posts, Vote
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea, Select
 
 
 class PostsForm(ModelForm):
@@ -15,6 +15,9 @@ class PostsForm(ModelForm):
             "full_text": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Текст статьи',
+            }),
+            "place": Select(attrs={
+                'class': 'form-control'
             }),
 
         }
